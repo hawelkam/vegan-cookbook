@@ -16,7 +16,7 @@ class Create extends Component {
             rating: 0,
             servings: 0,
             tags: '',
-            allegrens: '',
+            allergens: '',
             photos: ''
         };
     }
@@ -30,16 +30,16 @@ class Create extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const { name, ingredients, category, cookingTime, prepTime } = this.state;
+        const { name, ingredients, category, cookingTime, prepTime, description, steps, rating, servings, tags, allergens, photos } = this.state;
 
-        axios.post('/recipes', { name, ingredients, category, cookingTime, prepTime })
+        axios.post('/recipes', { name, ingredients, category, cookingTime, prepTime, description, steps, rating, servings, tags, allergens, photos })
             .then((result) => {
                 this.props.history.push("/")
             });
     }
 
     render() {
-        const { name, ingredients, category, cookingTime, prepTime } = this.state;
+        const { name, ingredients, category, cookingTime, prepTime, description, steps, rating, servings, tags, allergens, photos } = this.state;
         return (
             <div class="container">
                 <div class="panel panel-default">
@@ -70,6 +70,34 @@ class Create extends Component {
                             <div class="form-group">
                                 <label for="published_date">Cooking Time:</label>
                                 <input type="text" class="form-control" name="cookingTime" value={cookingTime} onChange={this.onChange} placeholder="Cooking Time" />
+                            </div>
+                            <div class="form-group">
+                                <label for="published_date">Description:</label>
+                                <input type="text" class="form-control" name="description" value={description} onChange={this.onChange} placeholder="Description" />
+                            </div>
+                            <div class="form-group">
+                                <label for="published_date">Steps:</label>
+                                <input type="text" class="form-control" name="steps" value={steps} onChange={this.onChange} placeholder="Steps" />
+                            </div>
+                            <div class="form-group">
+                                <label for="published_date">Rating:</label>
+                                <input type="text" class="form-control" name="rating" value={rating} onChange={this.onChange} placeholder="Rating" />
+                            </div>
+                            <div class="form-group">
+                                <label for="published_date">Servings:</label>
+                                <input type="text" class="form-control" name="servings" value={servings} onChange={this.onChange} placeholder="Servings" />
+                            </div>
+                            <div class="form-group">
+                                <label for="published_date">Tags:</label>
+                                <input type="text" class="form-control" name="tags" value={tags} onChange={this.onChange} placeholder="Tags" />
+                            </div>
+                            <div class="form-group">
+                                <label for="published_date">Allergens:</label>
+                                <input type="text" class="form-control" name="allergens" value={allergens} onChange={this.onChange} placeholder="Allergens" />
+                            </div>
+                            <div class="form-group">
+                                <label for="published_date">Photos:</label>
+                                <input type="text" class="form-control" name="photos" value={photos} onChange={this.onChange} placeholder="Photos" />
                             </div>
                             <button type="submit" class="btn btn-default">Submit</button>
                         </form>

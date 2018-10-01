@@ -35,6 +35,7 @@ class App extends Component {
                             <tr>
                                 <th>Name</th>
                                 <th>Ingredients</th>
+                                <th>Description</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -42,6 +43,7 @@ class App extends Component {
                                 <tr>
                                     <td><Link to={`/show/${r.id}`}>{r.name}</Link></td>
                                     <td>{r.ingredients}</td>
+                                    <td>{r.description}</td>
                                 </tr>
                             )}
                             </tbody>
