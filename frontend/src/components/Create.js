@@ -9,7 +9,7 @@ class Create extends Component {
             name: '',
             ingredients: '',
             category: '',
-            cookingTime: '',
+            cookingTime: 0,
             prepTime: 0,
             description: '',
             steps: '',
@@ -65,11 +65,11 @@ class Create extends Component {
                             </div>
                             <div class="form-group">
                                 <label for="published_date">Prep Time:</label>
-                                <input type="text" class="form-control" name="prepTime" value={prepTime} onChange={this.onChange} placeholder="Prep Time" />
+                                <input type="number" class="form-control" name="prepTime" value={prepTime} onChange={this.onChange} placeholder="Prep Time" />
                             </div>
                             <div class="form-group">
                                 <label for="published_date">Cooking Time:</label>
-                                <input type="text" class="form-control" name="cookingTime" value={cookingTime} onChange={this.onChange} placeholder="Cooking Time" />
+                                <input type="number" class="form-control" name="cookingTime" value={cookingTime} onChange={this.onChange} placeholder="Cooking Time" />
                             </div>
                             <div class="form-group">
                                 <label for="published_date">Description:</label>

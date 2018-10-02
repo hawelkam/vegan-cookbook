@@ -10,7 +10,7 @@ public class Recipe {
     String name;
     String category; //TODO: change to List of categories
     Integer prepTime;
-    String cookingTime; //TODO: change to Integer
+    Integer cookingTime;
     String description;
     String steps; //TODO: change to List of steps
     Integer rating; //TODO: implement an enum maybe? think about the solution for storing rating
@@ -24,14 +24,14 @@ public class Recipe {
 
     }
 
-    public Recipe(String name, String category, String cookingTime, String ingredients) {
+    public Recipe(String name, String category, Integer cookingTime, String ingredients) {
         this.name = name;
         this.category = category;
         this.cookingTime = cookingTime;
         this.ingredients = ingredients;
     }
 
-    public Recipe(String name, String category, Integer prepTime, String cookingTime, String description, String steps, Integer servings, String ingredients) {
+    public Recipe(String name, String category, Integer prepTime, Integer cookingTime, String description, String steps, Integer servings, String ingredients) {
         this.name = name;
         this.category = category;
         this.prepTime = prepTime;
@@ -42,7 +42,7 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public Recipe(String name, String category, Integer prepTime, String cookingTime,
+    public Recipe(String name, String category, Integer prepTime, Integer cookingTime,
                   String description, String steps, Integer rating, Integer servings,
                   String tags, String allergens, String photos, String ingredients) {
         this.name = name;
@@ -83,11 +83,11 @@ public class Recipe {
         this.category = category;
     }
 
-    public String getCookingTime() {
+    public Integer getCookingTime() {
         return cookingTime;
     }
 
-    public void setCookingTime(String cookingTime) {
+    public void setCookingTime(Integer cookingTime) {
         this.cookingTime = cookingTime;
     }
 

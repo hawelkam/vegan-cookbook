@@ -48,6 +48,7 @@ class App extends Component {
                             )}
                             </tbody>
                         </table>
+                        <Link to={`/create`}>Create New Recipe</Link>
                     </div>
                 </div>
             </div>
