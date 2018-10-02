@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import StarRatings from 'react-star-ratings';
 
 class Create extends Component {
     constructor() {
@@ -36,6 +37,12 @@ class Create extends Component {
             .then((result) => {
                 this.props.history.push("/")
             });
+    }
+
+    changeRating = ( newRating, name ) => {
+        const state = this.state;
+        state[name] = newRating;
+        this.setState(state);
     }
 
     render() {
@@ -80,8 +87,14 @@ class Create extends Component {
                                 <input type="text" class="form-control" name="steps" value={steps} onChange={this.onChange} placeholder="Steps" />
                             </div>
                             <div class="form-group">
-                                <label for="published_date">Rating:</label>
-                                <input type="text" class="form-control" name="rating" value={rating} onChange={this.onChange} placeholder="Rating" />
+                                <label for="published_date">Rating:</label><br />
+                                <StarRatings
+                                    rating={rating}
+                                    starRatedColor="gold"
+                                    changeRating={this.changeRating}
+                                    numberOfStars={10}
+                                    name='rating'
+                                />
                             </div>
                             <div class="form-group">
                                 <label for="published_date">Servings:</label>
