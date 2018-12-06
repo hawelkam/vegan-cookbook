@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import StarRatings from "react-star-ratings";
 
 class Edit extends Component {
     constructor(props) {
@@ -24,6 +25,12 @@ class Edit extends Component {
         this.setState({recipe: state});
     }
 
+    changeRating = ( newRating, name ) => {
+        const state = this.state;
+        state[name] = newRating;
+        this.setState(state);
+    }
+
     onSubmit = (e) => {
         e.preventDefault();
 
@@ -37,33 +44,76 @@ class Edit extends Component {
 
     render() {
         return (
-            <div class="container">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
+            <div className="container">
+                <div className="panel panel-default">
+                    <div className="panel-heading">
+                        <h3 className="panel-title">
                             EDIT RECIPE
                         </h3>
                     </div>
-                    <div class="panel-body">
-                        <h4><Link to={`/show/${this.state.recipe.id}`}><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>Recipes List</Link></h4>
+                    <div className="panel-body">
+                        <h4><Link to={`/show/${this.state.recipe.id}`}><span className="glyphicon glyphicon-th-list" aria-hidden="true"></span>Recipes List</Link></h4>
                         <form onSubmit={this.onSubmit}>
-                            <div class="form-group">
-                                <label for="isbn">Name:</label>
-                                <input type="text" class="form-control" name="name" value={this.state.recipe.name} onChange={this.onChange} placeholder="Name" />
+                            <div className="form-group">
+                                <label htmlFor="isbn">Name:</label>
+                                <input type="text" className="form-control" name="name" value={this.state.recipe.name} onChange={this.onChange} placeholder="Name" />
                             </div>
-                            <div class="form-group">
-                                <label for="title">Ingredients:</label>
-                                <input type="text" class="form-control" name="ingredients" value={this.state.recipe.ingredients} onChange={this.onChange} placeholder="Ingredients" />
+                            <div className="form-group">
+                                <label htmlFor="title">Ingredients:</label>
+                                <input type="text" className="form-control" name="ingredients" value={this.state.recipe.ingredients} onChange={this.onChange} placeholder="Ingredients" />
                             </div>
-                            <div class="form-group">
-                                <label for="author">Category:</label>
-                                <input type="text" class="form-control" name="category" value={this.state.recipe.category} onChange={this.onChange} placeholder="Category" />
+                            <div className="form-group">
+                                <label htmlFor="author">Category:</label>
+                                <input type="text" className="form-control" name="category" value={this.state.recipe.category} onChange={this.onChange} placeholder="Category" />
                             </div>
-                            <div class="form-group">
-                                <label for="published_date">Cooking Time:</label>
-                                <input type="text" class="form-control" name="cookingTime" value={this.state.recipe.cookingTime} onChange={this.onChange} placeholder="Cooking Time" />
+                            <div className="form-group">
+                                <label htmlFor="published_date">Prep Time:</label>
+                                <input type="text" className="form-control" name="prepTime" value={this.state.recipe.prepTime} onChange={this.onChange} placeholder="Prep Time" />
                             </div>
-                            <button type="submit" class="btn btn-default">Update</button>
+                            <div className="form-group">
+                                <label htmlFor="published_date">Cooking Time:</label>
+                                <input type="text" className="form-control" name="cookingTime" value={this.state.recipe.cookingTime} onChange={this.onChange} placeholder="Cooking Time" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="published_date">Description:</label>
+                                <input type="text" className="form-control" name="description" value={this.state.recipe.description} onChange={this.onChange} placeholder="Description"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="published_date">Steps:</label>
+                                <input type="text" className="form-control" name="steps" value={this.state.recipe.steps}
+                                       onChange={this.onChange} placeholder="Steps"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="published_date">Rating:</label><br/>
+                                <StarRatings
+                                    rating={this.state.recipe.rating}
+                                    starRatedColor="gold"
+                                    changeRating={this.changeRating}
+                                    numberOfStars={10}
+                                    name='rating'
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="published_date">Servings:</label>
+                                <input type="text" className="form-control" name="servings" value={this.state.recipe.servings}
+                                       onChange={this.onChange} placeholder="Servings"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="published_date">Tags:</label>
+                                <input type="text" className="form-control" name="tags" value={this.state.recipe.tags}
+                                       onChange={this.onChange} placeholder="Tags"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="published_date">Allergens:</label>
+                                <input type="text" className="form-control" name="allergens" value={this.state.recipe.allergens}
+                                       onChange={this.onChange} placeholder="Allergens"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="published_date">Photos:</label>
+                                <input type="text" className="form-control" name="photos" value={this.state.recipe.photos}
+                                       onChange={this.onChange} placeholder="Photos"/>
+                            </div>
+                            <button type="submit" className="btn btn-default">Update</button>
                         </form>
                     </div>
                 </div>
